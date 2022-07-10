@@ -15,3 +15,6 @@ Para utilizar é bastante simples, nesse mesmo repositório tem um exemplo prát
 
 #
 
+## Repositório de Origem
+
+Os arquivos nesse repositório não são de produção minha, seu dono original está listado ao final com os créditos, a criação desse repositório que você está atualmente tem como finalidade trazer um documento traduzido e bem explicado com português para facilitar o aprendizado 
