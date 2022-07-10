@@ -22,8 +22,7 @@ Fundamentalmente criado para ser usado nas placas:
 Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 
 ---
-
-## Conecatando a Wi-Fi
+### Conecatando a Wi-Fi
 
 O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo está presente no arquivo boot.py
 
