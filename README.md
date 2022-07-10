@@ -19,7 +19,7 @@ Fundamentalmente criado para ser usado nas placas:
 - ⚙️ ESP8266
 - ⚙️ LoRa32
 
-Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
+> 🪧 Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython, estou apenas sinalizando os equipamentos que consegui realizar testes.
 
 ---
 ### 📝 Primeiros passos
