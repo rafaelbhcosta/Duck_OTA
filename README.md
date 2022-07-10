@@ -1,7 +1,7 @@
 <p align="center">
   <br /><img
     width="924"
-    src="duck_ota.png"
+    src="imagens\duck_ota.png"
     alt="Senko – OTA Updater"
   />
 </p>
