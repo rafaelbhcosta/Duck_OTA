@@ -26,7 +26,7 @@ Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 
 Abaixo você recebera instruções de todos os trexos comentados do arquivo principal o boot.py, junto com uma breve resumo do funcionamento.
 
-Após essas intruções você encontrara outras informações adicionais.
+> 🪧 Após essas intruções você encontrara outras informações adicionais.
 
 ---
 ### 📡 Conecatando ao Wi-Fi
