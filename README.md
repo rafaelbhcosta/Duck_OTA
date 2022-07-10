@@ -10,3 +10,8 @@ Com esse protocolo posso atualizar para uma nova versão um script dentro da min
 #
 
 ## Utilização Prática
+
+Para utilizar é bastante simples, nesse mesmo repositório tem um exemplo prático e um arquivo .md para orientar com um passo a passo
+
+#
+
