@@ -27,7 +27,7 @@ Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 Abaixo você recebera instruções de todos os trexos comentados do arquivo principal o boot.py, junto com uma breve resumo do funcionamento.
 
 ---
-### 📡 Conecatando a Wi-Fi
+### 📡 Conecatando ao Wi-Fi
 
 O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo é uma resolução simples para isso.
 
@@ -56,28 +56,17 @@ if station.isconnected() == True:
 else:
     print("Problemas ao se conectar\nReveja os dados da Wi-Fi em boot.py")
 ```
-
 ---
-
-## Utilização Prática
-
-Para utilizar é bastante simples, nesse mesmo repositório tem um exemplo prático e um arquivo .md para orientar com um passo a passo
-
+### Preparando o OTA
 ---
-
-## Repositório de Origem
-
-Os arquivos nesse repositório não são de produção minha, seu dono original está listado ao final com os créditos, a criação desse repositório que você está atualmente tem como finalidade trazer um documento traduzido e bem explicado com português para facilitar o aprendizado 
-
+### Atualizando
 ---
-
+### Ferramenta de Busca
+---
+### Atualização apartir de um repositório privado
+---
+### Contribuição
+---
+### Licença
+---
 ### Créditos
-
-Os arquivos originais se encontram no repositório do link abaixo:
-https://github.com/RangerDigital/senko
-
-O repositório atual segue todas as normas de distribuição do repositório original, seguindo a licença de uso do tipo GPL GNU V.3 - Por questões legais e de educação, caso queira usar esse repositório ou o original, peço que siga as mesmas orientações do repositório original
-
-- Atribua os devidos créditos
-- Caso seja para distribuição gratuita ou de estudo mantenha a mesma licença
-- Pode usar em projetos privados que vão gerar receita para você mesmo, desde que pelo menos atribua algum crédito do desenvolvimento do protocolo dentro do script
