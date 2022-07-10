@@ -1,7 +1,7 @@
 import urequests
 import uhashlib
 
-class Senko:
+class Duck:
     raw = "https://raw.githubusercontent.com"
     github = "https://github.com"
 

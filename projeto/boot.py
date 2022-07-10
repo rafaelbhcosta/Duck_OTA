@@ -34,15 +34,16 @@ else:
 #OTA
 #---
 
-# Usamos o protocolo OTA para atualizar nosso sistema remotamente, basta redefinir os dados presentes abaixo e não mexer nunca no senko.py
-
-from senko import Senko
-OTA = Senko(user="rafaelbhcosta", repo="nutri_ota", working_dir="ota", files=["boot.py", "main.py"])
+from duck import Duck
+OTA = Duck(user="rafaelbhcosta", repo="duck_ota", working_dir="duck", files=["boot.py", "main.py"])
 
 try:
     if OTA.update():
-        print("Recarregando...")
-        time.sleep(3)
+        for x in range(6):
+            print('.', end='')
+            time.sleep(1)
+        print('Reiniciando!')
+        time.sleep(2)
         machine.reset()
 
 except:
