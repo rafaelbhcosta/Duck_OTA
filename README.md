@@ -23,6 +23,38 @@ Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 
 ---
 
+## Conecatando a Wi-Fi
+
+O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo está presente no arquivo boot.py
+
+``` python
+#-------------------
+#Conectar com o wifi
+#-------------------
+
+# Dados da sua rede Wi-Fi (recomendo de 2.4GHz ou 2.5GHz)
+ssid = ""
+password = ""
+
+#sistema que vai conectar a EPS ao seu wifi
+station = network.WLAN(network.STA_IF)
+station.active(True)
+station.connect(ssid, password)
+sleep(6)
+# Leva um tempo até a placa se conectar a rede, uso 6 segundos pois nunca tive problemas com esse tempo
+
+#Caso de tudo certo vai conectar e notificar
+if station.isconnected() == True:
+    print('Conectado com Sucesso')
+    print(station.ifconfig())
+    
+#Se der errado a mensagem abaixo aparece
+else:
+    print("Problemas ao se conectar\nReveja os dados da Wi-Fi em boot.py")
+```
+
+---
+
 ## Utilização Prática
 
 Para utilizar é bastante simples, nesse mesmo repositório tem um exemplo prático e um arquivo .md para orientar com um passo a passo
