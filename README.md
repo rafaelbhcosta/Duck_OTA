@@ -9,9 +9,17 @@
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/OTA/blob/main/LICENSE)
 
-O protocolo OTA (Over-the-Air), é um protocolo usado para atualizar scripts de forma remota.
+### Duck OTA
+<br>
+Duck OTA ou simplesmente Duck é um protocolo de comunicação simplificado em OTA (Over-the-Air), criado para ser usado em projetos de IoT usando micropython
+<br><br><br>
 
-Com esse protocolo posso atualizar para uma nova versão um script dentro da minha ESP32 que está em campo por exemplo, é necessário apenas que o equipamento tenha acesso com a internet, e seja vinculado a um repositório do GitHub nesse caso
+Fundamentalmente criado para ser usado nas placas:
+- ESP32
+- ESP8266
+- LoRa 32
+
+Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 
 ---
 
