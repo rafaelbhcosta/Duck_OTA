@@ -15,16 +15,21 @@ Duck OTA ou simplesmente Duck é um protocolo de comunicação simplificado em O
 <br><br><br>
 
 Fundamentalmente criado para ser usado nas placas:
-- ESP32
-- ESP8266
-- LoRa32
+- ⚙️ ESP32
+- ⚙️ ESP8266
+- ⚙️ LoRa32
 
 Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython.
 
 ---
-### Conecatando a Wi-Fi
+### 📝 Primeiros passos
 
-O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo está presente no arquivo boot.py
+Abaixo você recebera instruções de todos os trexos comentados do arquivo principal o boot.py, junto com uma breve resumo do funcionamento.
+
+---
+### 📡 Conecatando a Wi-Fi
+
+O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo é uma resolução simples para isso.
 
 ``` python
 #-------------------
