@@ -1,7 +1,10 @@
-<div align="center">
-
-## OTA
-</div>
+<p align="center">
+  <br /><img
+    width="600"
+    src="duck_ota.png"
+    alt="Senko – OTA Updater"
+  />
+</p>
 
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/OTA/blob/main/LICENSE)
