@@ -29,7 +29,7 @@ Os arquivos nesse repositório não são de produção minha, seu dono original 
 Os arquivos originais se encontram no repositório do link abaixo:
 https://github.com/RangerDigital/senko
 
-O repositório atual segue todas as normas de distribuição do repositório original, seguindo a licença de uso do tipo GNU V.3 - Por questões legais e de educação, caso queira usar esse repositório ou o original, peço que siga as mesmas orientações do repositório original
+O repositório atual segue todas as normas de distribuição do repositório original, seguindo a licença de uso do tipo GPL GNU V.3 - Por questões legais e de educação, caso queira usar esse repositório ou o original, peço que siga as mesmas orientações do repositório original
 
 - Atribua os devidos créditos
 - Caso seja para distribuição gratuita ou de estudo mantenha a mesma licença
