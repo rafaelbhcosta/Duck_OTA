@@ -6,7 +6,7 @@ esp.osdebug(None)
 import gc
 gc.collect() 
 import network
-import time
+from time import sleep
 
 #-------------------
 #Conectar com o wifi
@@ -19,14 +19,14 @@ password = ""
 station = network.WLAN(network.STA_IF)
 station.active(True)
 station.connect(ssid, password)
-time.sleep(6)
+sleep(6)
 
 #Caso de tudo certo vai conectar e notificar
 if station.isconnected() == True:
     print('Conectado com Sucesso')
     print(station.ifconfig())
     
-#Se der errado ela vai gerar uma rede propria, nessa rede vai ser possivel atualizar qualquer dado
+#Se der errado a mensagem abaixo aparece
 else:
     print("Problemas ao se conectar\nReveja os dados da Wi-Fi em boot.py")
 
@@ -39,11 +39,12 @@ OTA = Duck(user="rafaelbhcosta", repo="duck_ota", working_dir="duck", files=["bo
 
 try:
     if OTA.update():
+        print('Novos arquivos encontrados. Baixando!')
         for x in range(6):
             print('.', end='')
-            time.sleep(1)
+            sleep(1)
         print('Reiniciando!')
-        time.sleep(2)
+        sleep(2)
         machine.reset()
 
 except:

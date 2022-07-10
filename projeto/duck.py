@@ -1,3 +1,7 @@
+# Para tudo funcionar como deve, nunca mexa nesse documento.
+# Ele está todo comentado para fins de compreensão.
+# Caso mofique algo, não nos responsabilizamos pelo não funcionamento do protocólo. 
+
 import urequests
 import uhashlib
 
@@ -6,16 +10,16 @@ class Duck:
     github = "https://github.com"
 
     def __init__(self, user, repo, url=None, branch="master", working_dir="app", files=["boot.py", "main.py"], headers={}):
-        """Senko OTA agent class.
-        Args:
-        user (str): GitHub user.
-        repo (str): GitHub repo to fetch.
-        branch (str): GitHub repo branch. (master)
-        working_dir (str): Directory inside GitHub repo where the micropython app is.
-        url (str): URL to root directory.
-        files (list): Files included in OTA update.
-        headers (list, optional): Headers for urequests.
-        """
+        #Duck OTA.
+        #Args:
+        #user (str): usuário do GitHub.
+        #repo (str): repositório do GitHub para buscar.
+        #branch (str): Ramo de repositório do GitHub. (mestre)
+        #working_dir (str): Diretório dentro do repositório GitHub onde está o aplicativo micropython.
+        #url (str): URL para o diretório raiz.
+        #files (list): Arquivos incluídos na atualização OTA.
+        #headers (list, opcional): Cabeçalhos para urequests.
+        
         self.base_url = "{}/{}/{}".format(self.raw, user, repo) if user else url.replace(self.github, self.raw)
         self.url = url if url is not None else "{}/{}/{}".format(self.base_url, branch, working_dir)
         self.headers = headers
@@ -55,20 +59,18 @@ class Duck:
         return changes
 
     def fetch(self):
-        """Check if newer version is available.
-        Returns:
-        True - if is, False - if not.
-        """
+        # Verifique se a versão mais recente está disponível.
+        # Devoluções:
+        # True - se for, False - se não.
         if not self._check_all():
             return False
         else:
             return True
 
     def update(self):
-        """Replace all changed files with newer one.
-        Returns:
-        True - if changes were made, False - if not.
-        """
+        #Substitui todos os arquivos alterados por um mais recente.
+        #Retorno:
+        #True - se as alterações foram feitas False - se não.
         changes = self._check_all()
         for file in changes:
             with open(file, "w") as local_file:
