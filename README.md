@@ -4,7 +4,7 @@ OTA
 </div>
 
 ---
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/OTA/blob/main/LICENSE)
 
 O protocolo OTA (Over-the-Air), é um protocolo usado para atualizar scripts de forma remota.
 
