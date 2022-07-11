@@ -105,10 +105,50 @@ Depois do _if_ você pode notar alguns timers, além de adicionar um visual boni
 
 ---
 ### Ferramenta de Busca
+
+Se você quiser apenas verificar se tem uma nova versão no repositório, mas não quer baixar, no lugar do método .update() use o .fetch()
+``` python
+if OTA.fetch():
+    print("Uma nova versão está disponível para download!")
+else:
+    print("Sem atualizações no momento")
+```
+Um exemplo prático de sua utilização é para o caso de você querer autorizar ou não o download de uma nova atualização, introduzindo uma condição dentro da busca de atualização, veja o exemplo a seguir:
+``` python
+try:
+    if OTA.fetch():
+        print("Uma nova versão está disponível para download!")
+        att = int(input('1 - Para fazer o download\n2 - Para ignorar a atualização:\n'))
+        if att == 1:
+            if OTA.update():
+                print('Baixando!')
+                for x in range(6):
+                    print('.', end='')
+                    sleep(1)
+                print('Reiniciando!')
+                sleep(2)
+                machine.reset()
+        else:
+            None
+
+except:
+    print("Sem atualizações no momento")
+```
+Dessa forma toda vez que ligar o equipamento ele vai pedir se é para fazer o download ou não da aplicação mais recente no repositório
+> 🪧 Para aplicações de IoT, onde existem equipamentos de campo essa opção não é indicada para uso, pois sem pessoas para ignorar a atualização o equipamento vai travar aqui até alguém interagir com ele.
+
 ---
 ### Atualização apartir de um repositório privado
+Atualização dessa parte em breve.
+
+Futura V2.0
+
 ---
 ### Contribuição
+Deseja contribuir com esse repositório?
+
+É simples, basta fazer um _Fork_ desse projeto, executar as melhorias que você acha que podem contribuir com o projeto e fazer um _Pull Request (PR)_
+
 ---
 ### Licença
 ---
