@@ -70,7 +70,18 @@ Agora vamos entrar realmente na utilização do protocólo OTA, no trecho abaixo
 
 from duck import Duck
 OTA = Duck(user="rafaelbhcosta", repo="Duck_ota", working_dir="projeto", files=["boot.py", "main.py"])
+```
+O primeiro passo que damos aqui é importar do arquivo duck a função Duck que vai importar todas as outras funções junto com ela.
 
+Dentro da variável OTA estamos declarando algumas coisas importantes, para efetuar o script com sucesso: 
+- _user_: o nome de usuário do seu repositório. 
+- _repo_: o repositório que você quer verificar e fazer o download. 
+- _working_dir_: a pasta que está os arquivos que queremos, sim podemos especificar a pasta de download, assim podemos criar várias versões de um projeto e baixar o que queremos, se der errado é só atualizar o boot para voltar para versão anterior desejada.
+- _files_: arquivos que serão verificados para download 
+
+---
+### Atualizando
+``` python
 try:
     if OTA.update():
         print('Novos arquivos encontrados. Baixando!')
@@ -84,24 +95,14 @@ try:
 except:
     print('Sem atualizações no momento')
     None
-
 ```
-O primeiro passo que damos aqui é importar do arquivo duck a função Duck que vai importar todas as outras funções junto com ela.
 
-Dentro da variável OTA estamos declarando algumas coisas importantes, para efetuar o script com sucesso: 
-- _user_: o nome de usuário do seu repositório. 
-- _repo_: o repositório que você quer verificar e fazer o download. 
-- _working_dir_: a pasta que está os arquivos que queremos, sim podemos especificar a pasta de download, assim podemos criar várias versões de um projeto e baixar o que queremos, se der errado é só atualizar o boot para voltar para versão anterior desejada.
-- _files_: arquivos que serão verificados para download 
-
-A seguir entramos em um try, onde ele vai executar nosso _if_ que vai chamar o método _update()_ e verificar se os arquivos do repositório são os mesmos do equipamento, caso sejam ele pula para o _except_ e executa apenas um print de aviso.
+A seguir entramos em um try, onde ele vai executar nosso _if_ que vai chamar o método _update()_ e verificar se os arquivos do repositório são os mesmos do equipamento, com base nos dados fornecidos na variável _OTA_, caso sejam ele pula para o _except_ e executa apenas um print de aviso.
 
 Caso os arquivos sejam diferentes outros métodos vão entrar em execução, baixar os arquivos e sobreescrever os anteriores.
 ##### Timers
 Depois do _if_ você pode notar alguns timers, além de adicionar um visual bonitinho, simulando o tempo de download dos arquivos ele tem outra função, em média o tempo que leva para baixar os novos arquivos e sobreescrever é de 5 segundos, o sistema que eu coloquei no código leva 7 segundos para ser executado, dando tempo de sobra para arquivos mais pesados baixarem, antes de reiniciar o equipamento, e sim para executar a nova atualização é preciso reiniciar o equipamento.
 
----
-### Atualizando
 ---
 ### Ferramenta de Busca
 ---
