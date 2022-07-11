@@ -151,5 +151,22 @@ Deseja contribuir com esse repositório?
 
 ---
 ### Licença
+Todo esse repositório está protegido sob a licença GPL GNU V3.0
+
+Essa licença atribui as seguintes autorizações e condições.
+
+Permissões:
+- Uso comercial
+- Modificação
+- Distribuição
+- Uso de patente
+- Uso privado
+ 
+Condições: 
+- Licença e aviso de direitos autorais
+- Mudanças de estado
+- Divulgar fonte
+- Mesma licença
+
 ---
 ### Créditos
