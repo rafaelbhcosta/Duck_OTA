@@ -1,6 +1,7 @@
 #-----------
 #bibliotecas
 #-----------
+import esp
 esp.osdebug(None)
 #essa classe garante que toda memoria em desuso vai ser liberada
 import gc
