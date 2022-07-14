@@ -8,7 +8,8 @@
 
 ---
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/LICENSE) 
-![](https://img.shields.io/amo/v/w?color=1&label=Duck_Ota)
+
+[![Duck_Ota: V1.0.0](https://img.shields.io/amo/v/w?color=1&label=Duck_Ota)]
 
 ### Duck OTA 
 
