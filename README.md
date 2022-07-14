@@ -7,8 +7,8 @@
 </p>
 
 ---
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/OTA/blob/main/LICENSE) 
-![Mozilla Add-on](https://img.shields.io/amo/v/w?label=Duck_Ota)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/LICENSE) 
+![](https://img.shields.io/amo/v/w?color=1&label=Duck_Ota)
 
 ### Duck OTA 
 
