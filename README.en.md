@@ -20,27 +20,27 @@
 ### Duck OTA 
 
 <br>
-Duck OTA ou simplesmente Duck é um protocolo de comunicação simplificado em OTA (Over-the-Air), criado para ser usado em projetos de IoT usando micropython
+Duck OTA or simply Duck is a simplified communication protocol in OTA (Over-the-Air), created to be used in IoT projects using micropython
 <br><br><br>
 
-Fundamentalmente criado para ser usado nas placas:
+Fundamentally created to be used on boards:
 - ⚙️ ESP32
 - ⚙️ ESP8266
 - ⚙️ LoRa32
 
-> 🪧 Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython, estou apenas sinalizando os equipamentos que consegui realizar testes.
+> 🪧 Even so, it can be used on any equipment that uses micropython, I'm just pointing out the equipment that I managed to test.
 
 ---
-### 📝 Primeiros passos
+### 📝 First steps
 
-Abaixo você recebera instruções de todos os trexos comentados do arquivo principal o boot.py, junto com uma breve resumo do funcionamento.
+Below you will receive instructions for all the commented sections of the main boot.py file, along with a brief summary of how it works.
 
-> 🪧 Após essas intruções você encontrara outras informações adicionais.
+> 🪧 After these instructions you will find other additional information.
 
 ---
-### 📡 Conecatando ao Wi-Fi
+### 📡 Connecting to Wi-Fi
 
-O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo é uma resolução simples para isso.
+The first step for everything else to work is to connect to Wi-Fi, the text below is a simple resolution for that.
 
 ``` python
 #-------------------
@@ -68,8 +68,8 @@ else:
     print("Problemas ao se conectar\nReveja os dados da Wi-Fi em boot.py")
 ```
 ---
-### Preparando o OTA
-Agora vamos entrar realmente na utilização do protocólo OTA, no trecho abaixo presente no boot.py estamos dando start no sistema de atualização. Caso não compreenda essa parte do código estou deixando detalhado um um passo a passo logo a seguir
+### Preparing the OTA
+Now let's really get into the use of the OTA protocol, in the excerpt below present in boot.py we are starting the update system. If you don't understand this part of the code I'm leaving a detailed step by step right below
 
 ``` python
 #---
@@ -79,13 +79,13 @@ Agora vamos entrar realmente na utilização do protocólo OTA, no trecho abaixo
 from duck import Duck
 OTA = Duck(user="rafaelbhcosta", repo="Duck_ota", working_dir="projeto", files=["boot.py", "main.py"])
 ```
-O primeiro passo que damos aqui é importar do arquivo duck a função Duck que vai importar todas as outras funções junto com ela.
+The first step we take here is to import the Duck function from the duck file, which will import all the other functions along with it.
 
-Dentro da variável OTA estamos declarando algumas coisas importantes, para efetuar o script com sucesso: 
-- _user_: o nome de usuário do seu repositório. 
-- _repo_: o repositório que você quer verificar e fazer o download. 
-- _working_dir_: a pasta que está os arquivos que queremos, sim podemos especificar a pasta de download, assim podemos criar várias versões de um projeto e baixar o que queremos, se der errado é só atualizar o boot para voltar para versão anterior desejada.
-- _files_: arquivos que serão verificados para download 
+Inside the OTA variable we are declaring some important things, to successfully execute the script:
+- _user_: the username of your repository.
+- _repo_: the repository you want to check and download.
+- _working_dir_: the folder where the files we want, yes we can specify the download folder, so we can create several versions of a project and download what we want, if it goes wrong just update the boot to go back to the previous version desired.
+- _files_: files that will be scanned for download
 
 ---
 ### Atualizando
@@ -105,23 +105,23 @@ except:
     None
 ```
 
-A seguir entramos em um try, onde ele vai executar nosso _if_ que vai chamar o método _update()_ e verificar se os arquivos do repositório são os mesmos do equipamento, com base nos dados fornecidos na variável _OTA_, caso sejam ele pula para o _except_ e executa apenas um print de aviso.
+Then we enter a try, where it will execute our _if_ that will call the _update()_ method and check if the repository files are the same as those on the device, based on the data provided in the _OTA_ variable, if so, it jumps to the _except_ and just print a warning.
 
-Caso os arquivos sejam diferentes outros métodos vão entrar em execução, baixar os arquivos e sobreescrever os anteriores.
+If the files are different, other methods will run, download the files and overwrite the previous ones.
 ##### Timers
-Depois do _if_ você pode notar alguns timers, além de adicionar um visual bonitinho, simulando o tempo de download dos arquivos ele tem outra função, em média o tempo que leva para baixar os novos arquivos e sobreescrever é de 5 segundos, o sistema que eu coloquei no código leva 7 segundos para ser executado, dando tempo de sobra para arquivos mais pesados baixarem, antes de reiniciar o equipamento, e sim para executar a nova atualização é preciso reiniciar o equipamento.
+After the _if_ you can notice some timers, in addition to adding a cute look, simulating the download time of the files it has another function, on average the time it takes to download new files and overwrite is 5 seconds, the system I I put it in the code, it takes 7 seconds to run, giving more time for heavier files to download, before restarting the equipment, and yes, to run the new update, it is necessary to restart the equipment.
 
 ---
-### Ferramenta de Busca
+### Search tool
 
-Se você quiser apenas verificar se tem uma nova versão no repositório, mas não quer baixar, no lugar do método .update() use o .fetch()
+If you just want to check if you have a new version in the repository, but don't want to download it, instead of the .update() method use .fetch()
 ``` python
 if OTA.fetch():
     print("Uma nova versão está disponível para download!")
 else:
     print("Sem atualizações no momento")
 ```
-Um exemplo prático de sua utilização é para o caso de você querer autorizar ou não o download de uma nova atualização, introduzindo uma condição dentro da busca de atualização, veja o exemplo a seguir:
+A practical example of its use is in case you want to authorize or not the download of a new update, introducing a condition inside the update search, see the following example:
 ``` python
 try:
     if OTA.fetch():
@@ -142,39 +142,39 @@ try:
 except:
     print("Sem atualizações no momento")
 ```
-Dessa forma toda vez que ligar o equipamento ele vai pedir se é para fazer o download ou não da aplicação mais recente no repositório
-> 🪧 Para aplicações de IoT, onde existem equipamentos de campo essa opção não é indicada para uso, pois sem pessoas para ignorar a atualização o equipamento vai travar aqui até alguém interagir com ele.
+That way, every time you turn on the equipment, it will ask whether or not to download the latest application in the repository
+> 🪧 For IoT applications, where there are field equipment, this option is not suitable for use, as without people to ignore the update, the equipment will freeze here until someone interacts with it.
 
 ---
-### Atualização apartir de um repositório privado
-Atualização dessa parte em breve.
+### Update from a private repository
+Update this part soon.
 
-Futura V2.0
-
----
-### Contribuição
-Deseja contribuir com esse repositório?
-
-É simples, basta fazer um _Fork_ desse projeto, executar as melhorias que você acha que podem contribuir com o projeto e fazer um _Pull Request (PR)_
+Future V2.0
 
 ---
-### Licença
-Todo esse repositório está protegido sob a licença GPL GNU V3.0
+### Contribution
+Want to contribute to this repository?
 
-Essa licença atribui as seguintes autorizações e condições.
+It's simple, just _Fork_ this project, run the improvements you think can contribute to the project and make a _Pull Request (PR)_
 
-Permissões:
-- Uso comercial
-- Modificação
-- Distribuição
-- Uso de patente
-- Uso privado
+---
+### License
+This entire repository is protected under the GPL GNU V3.0 license
+
+This license assigns the following authorizations and conditions.
+
+Permissions:
+- Commercial use
+- Modification
+- Distribution
+- Use of patent
+- Private use
  
-Condições: 
-- Licença e aviso de direitos autorais
-- Mudanças de estado
-- Divulgar fonte
-- Mesma licença
+Conditions:
+- License and copyright notice
+- State changes
+- Disclose source
+- Same license
 
 ---
 ### Créditos
