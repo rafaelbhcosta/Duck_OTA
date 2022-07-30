@@ -10,6 +10,13 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/LICENSE) 
 ![Duck_Ota: V1.0.0](https://img.shields.io/amo/v/w?color=1&label=Duck_Ota)
 
+---
+
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/README.en.md)
+[![es](https://img.shields.io/badge/lang-es-yellow.svg)](https://github.com/rafaelbhcosta/Duck_OTA/blob/main/README.es.md)
+
+---
 ### Duck OTA 
 
 <br>
