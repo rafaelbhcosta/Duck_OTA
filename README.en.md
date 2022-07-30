@@ -21,7 +21,7 @@
 Duck OTA or simply Duck is a simplified communication protocol in OTA (Over-the-Air), created to be used in IoT projects using micropython
 <br><br><br>
 
-Fundamentally created to be used on boards:
+Mainly created to be used on the following devices:
 - ⚙️ ESP32
 - ⚙️ ESP8266
 - ⚙️ LoRa32
