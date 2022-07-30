@@ -18,27 +18,27 @@
 ### Duck OTA 
 
 <br>
-Duck OTA ou simplesmente Duck é um protocolo de comunicação simplificado em OTA (Over-the-Air), criado para ser usado em projetos de IoT usando micropython
+Duck OTA o simplemente Duck es un protocolo de comunicación simplificado en OTA (Over-the-Air), creado para ser utilizado en proyectos IoT utilizando micropython
 <br><br><br>
 
-Fundamentalmente criado para ser usado nas placas:
+Creado fundamentalmente para ser utilizado en tableros:
 - ⚙️ ESP32
 - ⚙️ ESP8266
 - ⚙️ LoRa32
 
-> 🪧 Mesmo assim pode ser usado em qualquer equipamento que faça uso de micropython, estou apenas sinalizando os equipamentos que consegui realizar testes.
+> 🪧 Aun así se puede usar en cualquier equipo que haga uso de micropython, solo señalo el equipo que pude realizar pruebas.
 
 ---
-### 📝 Primeiros passos
+### 📝 Primeros pasos
 
-Abaixo você recebera instruções de todos os trexos comentados do arquivo principal o boot.py, junto com uma breve resumo do funcionamento.
+A continuación, recibirá instrucciones para todas las secciones comentadas del archivo principal boot.py, junto con un breve resumen de su funcionamiento.
 
-> 🪧 Após essas intruções você encontrara outras informações adicionais.
+> 🪧 Después de estas instrucciones encontrará otra información adicional.
 
 ---
-### 📡 Conecatando ao Wi-Fi
+### 📡 Conexión a wifi
 
-O primeiro passo para todo o resto funcionar é se conectar ao Wi-Fi, o texo abaixo é uma resolução simples para isso.
+El primer paso para que todo lo demás funcione es conectarse a Wi-Fi, el texto a continuación es una resolución simple para eso.
 
 ``` python
 #-------------------
@@ -66,8 +66,8 @@ else:
     print("Problemas ao se conectar\nReveja os dados da Wi-Fi em boot.py")
 ```
 ---
-### Preparando o OTA
-Agora vamos entrar realmente na utilização do protocólo OTA, no trecho abaixo presente no boot.py estamos dando start no sistema de atualização. Caso não compreenda essa parte do código estou deixando detalhado um um passo a passo logo a seguir
+### Preparando la OTA
+Ahora entremos realmente en el uso del protocolo OTA, en el extracto a continuación presente en boot.py estamos iniciando el sistema de actualización. Si no entiendes esta parte del código te dejo un paso a paso detallado justo debajo
 
 ``` python
 #---
@@ -77,16 +77,16 @@ Agora vamos entrar realmente na utilização do protocólo OTA, no trecho abaixo
 from duck import Duck
 OTA = Duck(user="rafaelbhcosta", repo="Duck_ota", working_dir="projeto", files=["boot.py", "main.py"])
 ```
-O primeiro passo que damos aqui é importar do arquivo duck a função Duck que vai importar todas as outras funções junto com ela.
+El primer paso que damos aquí es importar la función Duck desde el archivo duck, que importará todas las demás funciones junto con ella.
 
-Dentro da variável OTA estamos declarando algumas coisas importantes, para efetuar o script com sucesso: 
-- _user_: o nome de usuário do seu repositório. 
-- _repo_: o repositório que você quer verificar e fazer o download. 
-- _working_dir_: a pasta que está os arquivos que queremos, sim podemos especificar a pasta de download, assim podemos criar várias versões de um projeto e baixar o que queremos, se der errado é só atualizar o boot para voltar para versão anterior desejada.
-- _files_: arquivos que serão verificados para download 
+Dentro de la variable OTA estamos declarando algunas cosas importantes para ejecutar con éxito el script:
+- _user_: el nombre de usuario de tu repositorio.
+- _repo_: el repositorio que desea consultar y descargar.
+- _working_dir_: la carpeta donde están los archivos que queremos, sí podemos especificar la carpeta de descarga, así podemos crear varias versiones de un proyecto y descargar lo que queramos, si sale mal solo actualice el arranque para volver a la versión anterior deseada .
+- _files_: archivos que serán escaneados para su descarga
 
 ---
-### Atualizando
+### Actualizando
 ``` python
 try:
     if OTA.update():
@@ -103,23 +103,23 @@ except:
     None
 ```
 
-A seguir entramos em um try, onde ele vai executar nosso _if_ que vai chamar o método _update()_ e verificar se os arquivos do repositório são os mesmos do equipamento, com base nos dados fornecidos na variável _OTA_, caso sejam ele pula para o _except_ e executa apenas um print de aviso.
+Luego ingresamos un try, donde ejecutará nuestro _if_ que llamará al método _update()_ y comprobará si los archivos del repositorio son los mismos que los del dispositivo, en base a los datos proporcionados en la variable _OTA_, si es así, se salta a _except_ y solo imprime una advertencia.
 
-Caso os arquivos sejam diferentes outros métodos vão entrar em execução, baixar os arquivos e sobreescrever os anteriores.
+Si los archivos son diferentes, se ejecutarán otros métodos, descargarán los archivos y sobrescribirán los anteriores.
 ##### Timers
-Depois do _if_ você pode notar alguns timers, além de adicionar um visual bonitinho, simulando o tempo de download dos arquivos ele tem outra função, em média o tempo que leva para baixar os novos arquivos e sobreescrever é de 5 segundos, o sistema que eu coloquei no código leva 7 segundos para ser executado, dando tempo de sobra para arquivos mais pesados baixarem, antes de reiniciar o equipamento, e sim para executar a nova atualização é preciso reiniciar o equipamento.
+Despues del _if_ puedes notar algunos temporizadores, ademas de agregarle un lindo look, simular el tiempo de descarga de los archivos tiene otra funcion, en promedio el tiempo que tarda en descargar archivos nuevos y sobreescribir es de 5 segundos, el sistema lo puse en el código, tarda 7 segundos en ejecutarse, dando más tiempo para que se descarguen los archivos más pesados, antes de reiniciar el equipo, y sí, para ejecutar la nueva actualización, es necesario reiniciar el equipo.
 
 ---
-### Ferramenta de Busca
+### Herramienta de búsqueda
 
-Se você quiser apenas verificar se tem uma nova versão no repositório, mas não quer baixar, no lugar do método .update() use o .fetch()
+Si solo desea verificar si tiene una nueva versión en el repositorio, pero no desea descargarla, en lugar del método .update() use .fetch()
 ``` python
 if OTA.fetch():
     print("Uma nova versão está disponível para download!")
 else:
     print("Sem atualizações no momento")
 ```
-Um exemplo prático de sua utilização é para o caso de você querer autorizar ou não o download de uma nova atualização, introduzindo uma condição dentro da busca de atualização, veja o exemplo a seguir:
+Un ejemplo práctico de su uso es en caso de querer autorizar o no la descarga de una nueva actualización, introduciendo una condición dentro de la búsqueda de actualizaciones, ver el siguiente ejemplo:
 ``` python
 try:
     if OTA.fetch():
@@ -140,39 +140,39 @@ try:
 except:
     print("Sem atualizações no momento")
 ```
-Dessa forma toda vez que ligar o equipamento ele vai pedir se é para fazer o download ou não da aplicação mais recente no repositório
-> 🪧 Para aplicações de IoT, onde existem equipamentos de campo essa opção não é indicada para uso, pois sem pessoas para ignorar a atualização o equipamento vai travar aqui até alguém interagir com ele.
+De esa forma, cada vez que encienda el equipo, le preguntará si desea o no descargar la última aplicación en el repositorio.
+> 🪧 Para aplicaciones de IoT, donde hay equipos de campo, esta opción no es adecuada para su uso, ya que sin personas que ignoren la actualización, el equipo se congelará aquí hasta que alguien interactúe con él.
 
 ---
-### Atualização apartir de um repositório privado
-Atualização dessa parte em breve.
+### Actualizar desde un repositorio privado
+Actualice esta parte pronto.
 
-Futura V2.0
-
----
-### Contribuição
-Deseja contribuir com esse repositório?
-
-É simples, basta fazer um _Fork_ desse projeto, executar as melhorias que você acha que podem contribuir com o projeto e fazer um _Pull Request (PR)_
+Futuro V2.0
 
 ---
-### Licença
-Todo esse repositório está protegido sob a licença GPL GNU V3.0
+### Contribución
+¿Quieres contribuir a este repositorio?
 
-Essa licença atribui as seguintes autorizações e condições.
+Es simple, solo _bifurque_ este proyecto, ejecute las mejoras que crea que pueden contribuir al proyecto y haga una _solicitud de extracción (PR)_
 
-Permissões:
+---
+### Licencia
+Todo este repositorio está protegido bajo la licencia GPL GNU V3.0
+
+Esta licencia asigna las siguientes autorizaciones y condiciones.
+
+Permisos:
 - Uso comercial
-- Modificação
-- Distribuição
+- Modificación
+- Distribución
 - Uso de patente
 - Uso privado
  
-Condições: 
-- Licença e aviso de direitos autorais
-- Mudanças de estado
-- Divulgar fonte
-- Mesma licença
+Condiciones:
+- Licencia y aviso de copyright
+- Cambios de estado
+- Revelar fuente
+- Misma licencia
 
 ---
 ### Créditos
